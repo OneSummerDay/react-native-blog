@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Text, View, Image } from 'react-native'
+import { Text, View, FlatList } from 'react-native'
 import { Post } from './components/Post'
 
 export default function App() {
@@ -21,13 +21,17 @@ export default function App() {
 
   return (
     <View>
-      {items.map((obj) => (
-        <Post
-          title={obj.title}
-          createdAt={obj.createdAt}
-          imageUrl={obj.imageUrl}
-        />
-      ))}
+      <FlatList
+        data={items}
+        renderItem={({ item }) => (
+          <Post
+            title={item.title}
+            imageUrl={item.imageUrl}
+            createdAt={item.imageUrl}
+          />
+        )}
+      />
+
       <StatusBar theme="auto" />
     </View>
   )
