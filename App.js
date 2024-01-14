@@ -3,7 +3,7 @@ import { Text, View, Image } from 'react-native'
 import styled from 'styled-components/native'
 
 const Post = styled.View`
-  flex: 1;
+  flex-direction: row;
   padding: 15px;
   border-buttom-width: 1px;
   border-bottom-color: rgba(0, 0, 0, 0.1);
@@ -22,15 +22,30 @@ const PostTitle = styled.Text`
   font-weight: 700;
 `
 
+const PostDetails = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+`
+
+const PostDate = styled.Text`
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-top: 2px;
+`
+
 export default function App() {
   return (
     <View>
       <StatusBar theme="auto" />
       <Post>
-        <Image
+        <PostImage
           source={{ uri: 'https://images.app.goo.gl/SpQ2bWgBHdgLuEF18' }}
         />
-        <PostTitle>Тестовая статья</PostTitle>
+        <PostDetails>
+          <PostTitle>Тестовая статья</PostTitle>
+          <PostDate>14.01.2024</PostDate>
+        </PostDetails>
       </Post>
     </View>
   )
