@@ -32,15 +32,13 @@ const PostDate = styled.Text`
   margin-top: 2px;
 `
 
-export const Post = () => {
+export const Post = ({ title, imageUrl, createdAt }) => {
   return (
     <PostView>
-      <PostImage
-        source={{ uri: 'https://images.app.goo.gl/SpQ2bWgBHdgLuEF18' }}
-      />
+      <PostImage source={{ uri: imageUrl }} />
       <PostDetails>
-        <PostTitle>Тестовая статья</PostTitle>
-        <PostDate>14.01.2024</PostDate>
+        <PostTitle>{title}</PostTitle>
+        <PostDate>{createdAt}</PostDate>
       </PostDetails>
     </PostView>
   )

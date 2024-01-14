@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View>
       <StatusBar theme="auto" />
-      <Post />
+      <Post title="Test" />
     </View>
   )
 }
