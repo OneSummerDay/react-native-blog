@@ -21,8 +21,14 @@ export default function App() {
 
   return (
     <View>
+      {items.map((obj) => (
+        <Post
+          title={obj.title}
+          createdAt={obj.createdAt}
+          imageUrl={obj.imageUrl}
+        />
+      ))}
       <StatusBar theme="auto" />
-      <Post title="Test" />
     </View>
   )
 }

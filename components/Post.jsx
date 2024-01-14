@@ -21,7 +21,6 @@ const PostTitle = styled.Text`
 `
 
 const PostDetails = styled.View`
-  flex-direction: column;
   justify-content: center;
   flex: 1;
 `
