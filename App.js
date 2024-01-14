@@ -17,6 +17,11 @@ const PostImage = styled.Image`
   margin-right: 12px;
 `
 
+const PostTitle = styled.Text`
+  font-size: 16px;
+  font-weight: 700;
+`
+
 export default function App() {
   return (
     <View>
@@ -25,6 +30,7 @@ export default function App() {
         <Image
           source={{ uri: 'https://images.app.goo.gl/SpQ2bWgBHdgLuEF18' }}
         />
+        <PostTitle>Тестовая статья</PostTitle>
       </Post>
     </View>
   )
