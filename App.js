@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Text, View, FlatList } from 'react-native'
+import { Text, View, FlatList, ActivityIndicator } from 'react-native'
 import { Post } from './components/Post'
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(true)
   const [items, setItems] = React.useState()
 
-  React.useEffect(() => {
+  const fetchPosts = () => {
+    setIsLoading(true)
     axios
       .get('https://65a43ae652f07a8b4a3d4245.mockapi.io/posts/v1/articles')
       .then(({ data }) => {
@@ -17,10 +19,29 @@ export default function App() {
         console.log(err)
         alert('Ошибка при получении статей')
       })
-  }, [])
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }
+
+  React.useEffect(fetchPosts, [])
+
+  is (isLoading) {
+    return (
+    <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <ActivityIndicator size="large" />
+      <Text>Загрузка...</Text>
+    </View>
+    )
+  }
 
   return (
     <View>
+      
       <FlatList
         data={items}
         renderItem={({ item }) => (
