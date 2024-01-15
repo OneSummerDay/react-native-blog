@@ -55,7 +55,11 @@ export const Home = ({ navigation }) => {
         }
         data={items}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('FullPost')
+            }}
+          >
             <Post
               title={item.title}
               imageUrl={item.imageUrl}
