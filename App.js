@@ -1,7 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Text, View, FlatList, ActivityIndicator } from 'react-native'
+import {
+  Text,
+  View,
+  FlatList,
+  ActivityIndicator,
+  RefreshControl,
+} from 'react-native'
 import { Post } from './components/Post'
 
 export default function App() {
@@ -44,6 +50,9 @@ export default function App() {
   return (
     <View>
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={fetchPosts} />
+        }
         data={items}
         renderItem={({ item }) => (
           <Post
