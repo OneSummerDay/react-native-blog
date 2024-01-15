@@ -7,6 +7,7 @@ import {
   FlatList,
   ActivityIndicator,
   RefreshControl,
+  TouchableOpacity,
 } from 'react-native'
 import { Post } from './components/Post'
 
@@ -55,11 +56,13 @@ export default function App() {
         }
         data={items}
         renderItem={({ item }) => (
-          <Post
-            title={item.title}
-            imageUrl={item.imageUrl}
-            createdAt={item.imageUrl}
-          />
+          <TouchableOpacity>
+            <Post
+              title={item.title}
+              imageUrl={item.imageUrl}
+              createdAt={item.imageUrl}
+            />
+          </TouchableOpacity>
         )}
       />
 
