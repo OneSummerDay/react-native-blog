@@ -16,13 +16,14 @@ const PostText = styled.Text`
   line-height: 24px;
 `
 
-const FullPost = () => {
+const FullPost = ({ route }) => {
   const [isLoading, setIsLoading] = React.useState(true)
   const [data, setData] = React.useState()
+  const { id, title } = route.params
 
   React.useEffect(() => {
     axios
-      .get('https://65a43ae652f07a8b4a3d4245.mockapi.io/posts/v1/articles')
+      .get('https://65a43ae652f07a8b4a3d4245.mockapi.io/posts/v1/articles' + id)
       .then(({ data }) => {
         setData(data)
       })

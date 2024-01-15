@@ -57,7 +57,10 @@ export const Home = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('FullPost')
+              navigation.navigate('FullPost', {
+                id: item.id,
+                title: item.title,
+              })
             }}
           >
             <Post
